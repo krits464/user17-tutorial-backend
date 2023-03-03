@@ -68,13 +68,13 @@ jobs:
       uses: github/codeql-action/analyze@v2
 
     # THIS IS INTERNAL ACITON ACCESS ONLY INTERNAL OGANIZAITON
-    - name: Quality Gate Check
-      uses: krits464/quality-gate-action@main
-      with:
-        repository: krits464/user17-tutorial-backend
-        severity: high
-      env:
-        GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+    # - name: Quality Gate Check
+    #   uses: krits464/quality-gate-action@main
+    #   with:
+    #     repository: krits464/user17-tutorial-backend
+    #     severity: high
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
         
   repo-dispatch:
     name: Repository Dispatch
@@ -82,13 +82,13 @@ jobs:
     needs: [unittest,analyze]
     environment:
       name: dev
-      url: https://github.com/<username>/<username>-tutorial-backend/actions/workflows/dev-tutorial-backend-deploy.yml
+      url: https://github.com/krits464/user17-tutorial-backend/actions/workflows/dev-tutorial-backend-deploy.yml
 
     steps:
     - name: Repository Dispatch
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.WORKFLOW_TOKEN }}
-        repository: <username>/<username>-pipeline
-        event-type: <username>-tutorial-backend-cd-dev
+        repository: krits464/user17-pipeline
+        event-type: krits464-tutorial-backend-cd-dev
         client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
