@@ -90,5 +90,5 @@ jobs:
       with:
         token: ${{ secrets.WORKFLOW_TOKEN }}
         repository: krits464/user17-pipeline
-        event-type: krits464-tutorial-backend-cd-dev
+        event-type: user17-tutorial-be-cd-dev
         client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
