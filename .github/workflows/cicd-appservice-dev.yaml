@@ -82,7 +82,7 @@ jobs:
     needs: [unittest,analyze]
     environment:
       name: dev
-      url: https://github.com/krits464/user17-tutorial-backend/actions/workflows/dev-tutorial-be-deploy.yml
+      url: https://github.com/krits464/user17-pipeline/actions/workflows/dev-tutorial-be-deploy.yml
 
     steps:
     - name: Repository Dispatch
